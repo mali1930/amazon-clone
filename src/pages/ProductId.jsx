@@ -17,13 +17,14 @@ const ProductId = () => {
     fetchProduct();
   }, []);
 
-  const addCart = () => {
-    setAdd(true);
-  };
   return (
-    <div className="mt-20 mb-20 flex flex-wrap justify-center gap-16 items-center px-10">
-      <div>
-        <img src={products.image} alt="product-image" className="h-[600px] mt-10" />
+    <div className="mt-20 mb-64 flex flex-wrap justify-center gap-16 items-center px-10">
+      <div className="object-contain">
+        <img
+          src={products.image}
+          alt="product"
+          className="h-[500px] w-[450px] mt-10"
+        />
       </div>
       <div className="space-y-5 max-w-3xl mt-10">
         <div className="text-3xl font-bold">{products.title}</div>

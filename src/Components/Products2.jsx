@@ -24,10 +24,10 @@ const Products2 = () => {
 
   return (
     <Fade left>
-      <div className="flex mb-20 mt-10 flex-wrap items-center justify-center gap-16 md:px-14 px-4">
+      <div className="flex mb-20 mt-10 flex-wrap items-center justify-center gap-20 md:px-14 px-4">
         <Swiper
           slidesPerView={1}
-          spaceBetween={10}
+          spaceBetween={50}
           navigation={true}
           centerInsufficientSlides
           breakpoints={{
@@ -45,7 +45,7 @@ const Products2 = () => {
         >
           {products?.slice(4, 20).map((item) => (
             <SwiperSlide key={item.id}>
-              <div className=" bg-white flex flex-col justify-center object-contain  p-12  md:w-[430px] md:h-[660px]     rounded-md  ">
+              <div className=" bg-white flex flex-col mb-28 justify-center object-contain  p-12  md:w-[330px] md:h-[660px]     rounded-md  ">
                 <Link to={`/product/${item.id}`}>
                   <img
                     src={item.image}

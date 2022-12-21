@@ -8,19 +8,23 @@ import Cart from "./pages/Cart";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import "swiper/css/bundle";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <div className="w-[100%] bg-gray-100">
+    <>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductId />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
+
       <Footer />
-    </div>
+    </>
   );
 };
 
