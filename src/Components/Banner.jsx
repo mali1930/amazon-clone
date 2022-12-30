@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 const Banner = () => {
   return (
-      <div className=" relative w-[100%] mt-16">
+      <div className=" relative w-full">
         <div className="absolute  h-36 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-10 " />
         <Carousel
           autoPlay

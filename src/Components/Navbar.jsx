@@ -11,15 +11,15 @@ const Navbar = () => {
   };
   const nav = useNavigate();
   return (
-    <div className="flex  bg-[#131921] fixed top-0 left-0 right-0   z-50 py-5 w-[100%]  px-12  items-center  justify-between ">
+    <div className="flex  bg-[#131921] sticky top-0 left-0 z-50 py-5 w-[100%]  px-12  items-center  justify-between ">
       <div className=" flex items-center  invert cursor-pointer">
         <img src={logo} alt="logo" className="w-[150px] lg:w-[200px] flex items-center" onClick={() => nav("/")} />
       </div>
 
-      <div className="  flex items-center">
+      <div className="  max-w-full flex items-center">
         <input
           type="text"
-          className=" py-2 max-w-6xl  rounded-md px-5"
+          className=" py-2  hidden md:block w-[100%] rounded-md px-5"
           placeholder="search.."
         />
       </div>

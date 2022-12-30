@@ -1,43 +1,55 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import { useGetProductsIdQuery } from "../features/products/productsSlice";
+import { addToCart } from "../features/cart/cartSlice";
+import ReactStars from "react-rating-stars-component";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 const ProductId = () => {
-  const [products, setProducts] = useState([]);
   const [add, setAdd] = useState(false);
-  const nav = useNavigate();
   const { id } = useParams();
+  const { data, isLoading } = useGetProductsIdQuery(id);
+  const dispatch = useDispatch();
 
-  async function fetchProduct() {
-    const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
-    setProducts(data);
-  }
+  const addToCartHandler = () => {
+    dispatch(
+      addToCart({
+        id: id,
+        amount: 1,
+      })
+    );
+  };
 
-  useEffect(() => {
-    fetchProduct();
-  }, []);
-
+  if (isLoading)
+    return (
+      <h1 className="flex items-center justify-center text-7xl text-bold h-screen">
+        Loading....
+      </h1>
+    );
   return (
     <div className="mt-20 mb-64 flex flex-wrap justify-center gap-16 items-center px-10">
       <div className="object-contain">
         <img
-          src={products.image}
+          src={data?.image}
           alt="product"
           className="h-[500px] w-[450px] mt-10"
         />
       </div>
       <div className="space-y-5 max-w-3xl mt-10">
-        <div className="text-3xl font-bold">{products.title}</div>
-        <div className="leading-8 md:text-lg text-md">
-          {products.description}
-        </div>
-        <div className="md:text-lg text-md">${products.price}</div>
-        {/* <div>{products.rating.rate}</div> */}
+        <div className="text-3xl font-bold">{data?.title}</div>
+        <div className="leading-8 md:text-lg text-md">{data?.description}</div>
+        <div className="md:text-lg text-md">${data?.price}</div>
+        <ReactStars
+          edit={false}
+          count={5}
+          size={20}
+          value={data?.rating.rate}
+        />
         <button
-          onClick={() => (add ? nav("/cart") : add)}
+          onClick={addToCartHandler}
           className="bg-yellow-600 py-2 md:px-28 px-12"
         >
-          {add ? "Checkout" : "Add to cart"}
+          {add ? "Add to cart" : "Check Out"}
         </button>
       </div>
     </div>

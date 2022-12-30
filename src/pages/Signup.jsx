@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className=" mb-10">
       <div className="flex  items-center justify-center h-screen">
@@ -14,7 +14,7 @@ const Login = () => {
             />
           </div>
           <div className="md:px-4 px-2">
-            <h1 className="md:text-xl text-md mb-4 ">Sign in</h1>
+            <h1 className="md:text-xl text-md mb-4 ">Sign Up</h1>
             <label for="email" className="text-xl">
               Email:
             </label>
@@ -25,6 +25,14 @@ const Login = () => {
             />
             <label for="email" className="text-xl">
               Password:
+            </label>
+            <input
+              type="password"
+              placeholder=" Password"
+              className="max-w-[800px] mb-4 w-[100%] border-2 py-2 rounded-md border-black mt-2 px-2"
+            />
+            <label for="email" className="text-xl">
+              Re-Password:
             </label>
             <input
               type="password"
@@ -42,10 +50,10 @@ const Login = () => {
             </p>
           </div>
           <div className="text-center mt-4 mb-2 px-4">
-            <h1>New to Amazon?</h1>
-            <Link to="/signup">
+            <h1>Already have an Account?</h1>
+            <Link to="/login">
               <button className="mt-4 bg-gray-300 max-w-full w-[100%] py-2">
-                Create Your Amazon Account
+                Sign up
               </button>
             </Link>
           </div>
@@ -55,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
