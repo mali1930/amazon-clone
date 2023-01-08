@@ -20,12 +20,18 @@ const Cart = () => {
   }, [items, products]);
 
   return (
-    <div className="p-10 min-h-screen flex flex-col gap-10">
-      {!cartItems.length ? (
-        <h1>Cart page empty </h1>
-      ) : (
-        cartItems.map((item) => <CartItem key={item.id} product={item} />)
-      )}
+    <div className="flex md:flex-row flex-wrap gap-12 px-6">
+      <div className=" max-w-full mt-20 w-[65%]">
+        {!cartItems.length ? (
+          <h1>Cart page empty </h1>
+        ) : (
+          cartItems.map((item) => <CartItem key={item.id} product={item} />)
+        )}
+      </div>
+      <div className="mt-28 w-[30%] space-y-3 max-w-full ">
+        <h1>Checkout</h1>
+        <button>Total:$</button>
+      </div>
     </div>
   );
 };

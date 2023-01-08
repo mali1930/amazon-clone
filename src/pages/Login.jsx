@@ -20,6 +20,7 @@ const Login = () => {
             </label>
             <input
               type="email"
+              required
               placeholder=" Email"
               className="max-w-[800px] mb-4 w-[100%] border-2 py-2 rounded-md border-black mt-2 px-2"
             />
@@ -28,11 +29,13 @@ const Login = () => {
             </label>
             <input
               type="password"
+              required
               placeholder=" Password"
               className="max-w-[800px] mb-4 w-[100%] border-2 py-2 rounded-md border-black mt-2 px-2"
             />
             <input
               type="submit"
+              required
               value="Sign in"
               className="text-center bg-yellow-600 max-w-full w-[100%] mt-4 py-3 rounded-lg"
             />
@@ -44,7 +47,7 @@ const Login = () => {
           <div className="text-center mt-4 mb-2 px-4">
             <h1>New to Amazon?</h1>
             <Link to="/signup">
-              <button className="mt-4 bg-gray-300 max-w-full w-[100%] py-2">
+              <button className="mt-4 cursor-pointer bg-gray-300 max-w-full w-[100%] py-2">
                 Create Your Amazon Account
               </button>
             </Link>

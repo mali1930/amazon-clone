@@ -1,3 +1,4 @@
+import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
 import {
   decrementProductAmount,
@@ -21,37 +22,38 @@ export default function CartItem({ product }) {
   };
 
   return (
-    <div className="flex items-center flex-wrap justify-between">
-      <div className="flex items-center">
+    <div className="flex items-center   p-3 w-[100%] max-w-full flex-wrap justify-between">
+      <div className="flex py-4 items-center ">
         <img src={product.image} alt="product" className="w-20" />
         <div className="text-start max-w-sm space-y-4 mt-3 ml-5">
-          <h1 className="mt-2 mb-2 text-2xl truncate  font-bold">
-            {product.title}
-          </h1>
-          <p className="text-xl font-medium">${product.price}</p>
+          <ReactStars
+            edit={false}
+            count={5}
+            size={12}
+            value={product?.rating.rate}
+          />
+          <p className="text-sm ">${product.price}</p>
         </div>
       </div>
       <div className="flex items-center gap-3">
         <div className="flex gap-1">
           <button
             onClick={decrementAmountHandler}
-            className="bg-red-600 text-white rounded-md  px-4 py-3"
+            className=" rounded-md  px-4 py-3"
           >
             -
           </button>
-          <p className="bg-gray-600 text-white rounded-md  px-4 py-3">
-            {product.amount}
-          </p>
+          <p className=" rounded-md  px-4 py-3">{product.amount}</p>
           <button
             onClick={incrementAmountHandler}
-            className="bg-blue-600 text-white  rounded-md  px-4 py-3"
+            className="  rounded-md  px-4 py-3"
           >
             +
           </button>
         </div>
         <button
           onClick={removeFromCartHandler}
-          className="bg-yellow-600 rounded-md  px-4 py-3"
+          className="bg-red-600 text-white rounded-md  px-1 py-2"
         >
           Remove
         </button>

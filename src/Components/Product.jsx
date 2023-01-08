@@ -23,7 +23,7 @@ export default function Product({ product }) {
           <img
             src={product?.image}
             alt="product"
-            className=" md:w-[300px] md:h-[340px] h-[250px] w-[200px]  "
+            className=" md:w-[240px] md:h-[240px] object-contain h-[220px] w-[190px]  "
           />
           <div className="text-start max-w-sm space-y-4 mt-3">
             <h1 className="mt-2 mb-2 text-2xl truncate  font-bold">

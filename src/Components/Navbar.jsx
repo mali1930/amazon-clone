@@ -13,17 +13,22 @@ const Navbar = () => {
   return (
     <div className="flex  bg-[#131921] sticky top-0 left-0 z-50 py-5 w-[100%]  px-12  items-center  justify-between ">
       <div className=" flex items-center  invert cursor-pointer">
-        <img src={logo} alt="logo" className="w-[150px] lg:w-[200px] flex items-center" onClick={() => nav("/")} />
+        <img
+          src={logo}
+          alt="logo"
+          className="w-[90px] lg:w-[110px] flex items-center"
+          onClick={() => nav("/")}
+        />
       </div>
 
-      <div className="  max-w-full flex items-center">
+      <div className=" flex items-center  ">
         <input
           type="text"
-          className=" py-2  hidden md:block w-[100%] rounded-md px-5"
+          className="py-2  hidden md:block  rounded-md px-5"
           placeholder="search.."
         />
       </div>
-      <div className="md:flex md:flex-row hidden items-center   gap-10 text-white text-lg">
+      <div className="md:flex md:flex-row hidden items-center   gap-10 text-white text-md">
         <div className="text-center">
           <div>hello</div>
           <span>
@@ -33,11 +38,11 @@ const Navbar = () => {
         <div className="text-center">
           <div>return</div>
           <span>
-            <Link to="/login">orders</Link>
+            <Link to="/history">orders</Link>
           </span>
         </div>
         <div className="text-center">
-          <div>hello</div>
+          
           <span>
             <Link to="/cart">cart</Link>
           </span>
