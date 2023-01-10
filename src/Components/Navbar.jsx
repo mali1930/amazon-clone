@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiOutlineMenu,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
+import Search from "./Search";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -20,14 +25,10 @@ const Navbar = () => {
           onClick={() => nav("/")}
         />
       </div>
-
-      <div className=" flex items-center  ">
-        <input
-          type="text"
-          className="py-2  hidden md:block  rounded-md px-5"
-          placeholder="search.."
-        />
+      <div>
+        <Search />
       </div>
+
       <div className="md:flex md:flex-row hidden items-center   gap-10 text-white text-md">
         <div className="text-center">
           <div>hello</div>
@@ -36,15 +37,13 @@ const Navbar = () => {
           </span>
         </div>
         <div className="text-center">
-          <div>return</div>
-          <span>
-            <Link to="/history">orders</Link>
-          </span>
+          <Link to="/history">orders history</Link>
         </div>
         <div className="text-center">
-          
           <span>
-            <Link to="/cart">cart</Link>
+            <Link to="/cart">
+              <AiOutlineShoppingCart size={34} />
+            </Link>
           </span>
         </div>
       </div>
@@ -81,7 +80,7 @@ const Navbar = () => {
           <div className="text-center">
             <div className="mb-4 text-xl">return</div>
             <span className="font-bold text-2xl">
-              <Link onClick={() => setOpen(false)} to="/login">
+              <Link onClick={() => setOpen(false)} to="/history">
                 orders
               </Link>
             </span>
@@ -89,7 +88,7 @@ const Navbar = () => {
           <div className="text-center">
             <span className="font-bold text-2xl">
               <Link to="/cart" onClick={() => setOpen(false)}>
-                cart
+                <AiOutlineShoppingCart size={34} />
               </Link>
             </span>
           </div>

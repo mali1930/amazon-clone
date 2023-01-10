@@ -13,10 +13,13 @@ import Signup from "./pages/Signup";
 import History from "./pages/History";
 
 const App = () => {
-   const cart = useSelector((state) => state.cart);
-   useEffect(() => {
-     localStorage.setItem("cart", JSON.stringify(cart));
-   }, [cart]);
+  const cart = useSelector((state) => state.cart);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />
@@ -24,7 +27,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductId />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import ReactStars from "react-rating-stars-component";
 
+
 export default function Product({ product }) {
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ export default function Product({ product }) {
 
   return (
     <Fade right>
+    
       <div className=" bg-white mt-10 mb-10 flex flex-col  justify-center object-contain  p-12 w-[260px]   md:w-[420px] md:h-[660px]     rounded-md  ">
         <Link to={`/product/${product?.id}`}>
           <img
