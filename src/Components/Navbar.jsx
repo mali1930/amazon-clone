@@ -31,17 +31,15 @@ const Navbar = () => {
 
       <div className="md:flex md:flex-row hidden items-center   gap-10 text-white text-md">
         <div className="text-center">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="text-center">
           <div>hello</div>
           <span>
             <Link to="/login">Sign in</Link>
           </span>
         </div>
-        <div className="text-center">
-          <div>Order</div>
-          <Link to="/history">
-            <span> history</span>
-          </Link>
-        </div>
+
         <div className="text-center">
           <span>
             <Link to="/cart">
@@ -72,6 +70,13 @@ const Navbar = () => {
             onClick={handleOpen}
             className="text-white absolute left-7 mt-5 cursor-pointer "
           />
+          <div className="text-center">
+            <span className="font-bold text-2xl">
+              <Link onClick={() => setOpen(false)} to="/">
+                Home
+              </Link>
+            </span>
+          </div>
           <div className="text-center ">
             <div className="mb-4 text-xl">hello,</div>
             <span className="font-bold text-2xl">
@@ -80,14 +85,7 @@ const Navbar = () => {
               </Link>
             </span>
           </div>
-          <div className="text-center">
-            <div className="mb-4 text-xl">return</div>
-            <span className="font-bold text-2xl">
-              <Link onClick={() => setOpen(false)} to="/history">
-                orders
-              </Link>
-            </span>
-          </div>
+
           <div className="text-center">
             <span className="font-bold text-2xl">
               <Link to="/cart" onClick={() => setOpen(false)}>
