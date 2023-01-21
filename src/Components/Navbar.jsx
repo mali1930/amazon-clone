@@ -37,7 +37,10 @@ const Navbar = () => {
           </span>
         </div>
         <div className="text-center">
-          <Link to="/history">orders history</Link>
+          <div>Order</div>
+          <Link to="/history">
+            <span> history</span>
+          </Link>
         </div>
         <div className="text-center">
           <span>

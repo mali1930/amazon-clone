@@ -29,7 +29,7 @@ export const cartSlice = createSlice({
       state.items[action.payload] += 1;
     },
     decrementProductAmount: (state, action) => {
-      state.items[action.payload] -= 1;
+      if (state.items[action.payload] > 1) state.items[action.payload] -= 1;
     },
   },
 });

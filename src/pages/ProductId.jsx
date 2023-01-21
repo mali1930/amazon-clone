@@ -1,12 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useGetProductsIdQuery } from "../features/products/productsSlice";
 import { addToCart } from "../features/cart/cartSlice";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+
 const ProductId = () => {
-  const [add, setAdd] = useState(false);
   const { id } = useParams();
   const { data, isLoading } = useGetProductsIdQuery(id);
   const dispatch = useDispatch();
@@ -49,9 +48,7 @@ const ProductId = () => {
           onClick={addToCartHandler}
           className="bg-yellow-600 py-2 md:px-28 px-12"
         >
-          <h1 onClick={() => setAdd(!add)}>
-            {add ? "Checkout" : "Add to cart"}
-          </h1>
+          <h1>Add to cart</h1>
         </button>
       </div>
     </div>

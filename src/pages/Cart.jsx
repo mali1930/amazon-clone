@@ -18,19 +18,27 @@ const Cart = () => {
       };
     });
   }, [items, products]);
+  const total = useMemo(() => {
+    let total = 0;
+    cartItems.forEach(item => {
+      total += item.price * item.amount;
+    })
+    return total;
+
+  }, [cartItems])
 
   return (
-    <div className="flex md:flex-row flex-wrap gap-12 px-6">
-      <div className=" max-w-full mt-20 w-[65%]">
+    <div className="flex md:flex-row bg-gray-100 flex-wrap justify-center gap-12 px-6">
+      <div className=" max-w-full bg-white px-2 py-8 mt-20 mb-2 md:w-[64%] w-[100%] ">
         {!cartItems.length ? (
           <h1>Cart page empty </h1>
         ) : (
           cartItems.map((item) => <CartItem key={item.id} product={item} />)
         )}
       </div>
-      <div className="mt-28 w-[30%] space-y-3 max-w-full ">
+      <div className="mt-20 w-[30%] md:h-[80vh] h-[22vh] p-2  mb-8  space-y-3 max-w-full ">
         <h1>Checkout</h1>
-        <button>Total:$</button>
+        <div>Total:${total.toFixed(2)}</div>
       </div>
     </div>
   );
