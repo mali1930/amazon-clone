@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import ReactStars from "react-rating-stars-component";
-
+import { toast } from "react-toastify";
 
 export default function Product({ product }) {
   const dispatch = useDispatch();
+  const items = useSelector(s => s.cart.items);
 
   const addToCartHandler = () => {
+    if (items[product.id])
+      return toast.warn("This item is already in cart.")
     dispatch(
       addToCart({
         id: product.id,
@@ -32,9 +35,7 @@ export default function Product({ product }) {
               {product?.title}
             </h1>
             <p className="truncate">{product?.description}</p>
-            <ReactStars
-              edit={false}
-              count={5}
+            <ReactStars edit={false} count={5}
               size={20}
               value={product.rating.rate}
             />

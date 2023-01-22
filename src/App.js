@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductId from "./pages/ProductId";
-import Checkout from "./pages/Checkout";
+import About from "./pages/About";
 import Cart from "./pages/Cart";
 import { useSelector } from "react-redux";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "swiper/css/bundle";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -27,12 +26,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductId />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
       </Routes>
-
+      <ToastContainer position="bottom-right" limit={3} />
       <Footer />
     </>
   );

@@ -8,9 +8,12 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import Search from "./Search";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const cartItemsCount = Object.keys(useSelector(s => s.cart.items)).length;
+
   const handleOpen = () => {
     setOpen(!open);
   };
@@ -34,18 +37,20 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </div>
         <div className="text-center">
-          <div>hello</div>
           <span>
-            <Link to="/login">Sign in</Link>
+            <Link to="/about">About</Link>
           </span>
         </div>
 
-        <div className="text-center">
+        <div className="text-center relative">
           <span>
             <Link to="/cart">
               <AiOutlineShoppingCart size={34} />
             </Link>
           </span>
+          <div className="absolute -top-2 -right-2 bg-red-700  aspect-square w-5 text-xs rounded-full flex items-center justify-center">
+            {cartItemsCount}
+          </div>
         </div>
       </div>
       <div className="lg:hidden  md:hidden flex flex-row items-center gap-5">
@@ -78,10 +83,9 @@ const Navbar = () => {
             </span>
           </div>
           <div className="text-center ">
-            <div className="mb-4 text-xl">hello,</div>
             <span className="font-bold text-2xl">
-              <Link onClick={() => setOpen(false)} to="/login">
-                Sign in
+              <Link onClick={() => setOpen(false)} to="/about">
+                About
               </Link>
             </span>
           </div>

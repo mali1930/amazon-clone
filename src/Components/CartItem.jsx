@@ -1,5 +1,6 @@
 import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   decrementProductAmount,
   incrementProductAmount,
@@ -24,7 +25,10 @@ export default function CartItem({ product }) {
   return (
     <div className="flex items-center   p-3 w-[100%] max-w-full flex-wrap justify-between">
       <div className="flex py-4 items-center ">
-        <img src={product.image} alt="product" className="w-20" />
+        <Link to={`/product/${product?.id}`}>
+          <img src={product.image} alt="product" className="w-20" />
+        </Link>
+
         <div className="text-start max-w-sm space-y-4 mt-3 ml-5">
           <ReactStars
             edit={false}
