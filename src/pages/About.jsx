@@ -3,17 +3,18 @@ import React from "react";
 const Checkout = () => {
   return (
     <div>
-      <div className="mt-20 mb-20 text-center font-bold text-3xl">About Us</div>
-      <div className="px-3 flex  flex-wrap  gap-5 ">
-    
-          <img
-            src="https://www.gadgethor.com/wp-content/uploads/2021/02/Jeff-Bezos.jpg"
-            alt="img"
-            className="md:w-[60%] w-[100%] h-[70vh] mb-20"
-          />
-       
+      <div className="mt-20 bg-slate-300 shadow-xl mb-20 text-center font-bold text-3xl">
+        About Us
+      </div>
+      <div className="px-4  flex   flex-wrap justify-center gap-5 ">
+        <img
+          src="https://www.gadgethor.com/wp-content/uploads/2021/02/Jeff-Bezos.jpg"
+          alt="img"
+          className=" mb-20 max-w-2xl w-[100%] mt-10 "
+        />
+
         <div>
-          <p className="max-w-xl">
+          <p className="max-w-xl mt-10">
             Amazon was founded on July 5, 1994, by Jeff Bezos, who chose the
             Seattle area for its abundance of technical talent, as Microsoft was
             in the area.[25] Amazon went public in May 1997. It began selling

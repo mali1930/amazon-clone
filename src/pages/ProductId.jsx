@@ -1,24 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useGetProductsIdQuery } from "../features/products/productsSlice";
-import { addToCart } from "../features/cart/cartSlice";
+
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import ReactStars from "react-rating-stars-component";
-import { useDispatch } from "react-redux";
 
 const ProductId = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetProductsIdQuery(id);
-  const dispatch = useDispatch();
-
-  const addToCartHandler = () => {
-    dispatch(
-      addToCart({
-        id: id,
-        amount: 1,
-      })
-    );
-  };
 
   if (isLoading)
     return (
@@ -55,12 +44,6 @@ const ProductId = () => {
             size={20}
             value={data?.rating.rate}
           />
-          <button
-            onClick={addToCartHandler}
-            className="bg-yellow-600 py-2 md:px-28 px-12"
-          >
-            <h1>Add to cart</h1>
-          </button>
         </div>
       </div>
     </>

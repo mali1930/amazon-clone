@@ -7,7 +7,7 @@ import Cart from "./pages/Cart";
 import { useSelector } from "react-redux";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "swiper/css/bundle";
 
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-      <ToastContainer position="bottom-right" limit={3} />
+      <ToastContainer position="bottom-right" />
       <Footer />
     </>
   );
